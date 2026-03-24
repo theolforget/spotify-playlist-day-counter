@@ -116,7 +116,7 @@ async function main() {
 
   const day = getDayOfYearInTimeZone(TIMEZONE);
   const songs = playlist?.tracks?.total ?? 0;
-  const newDescription = `Day ${day} • ${songs} songs`;
+  const newDescription = `${day} days | ${songs} songs`;
   const currentDescription = playlist?.description ?? "";
 
   console.log(`Playlist: ${playlist.name}`);
