@@ -1,0 +1,13 @@
+{
+  "name": "spotify-playlist-day-counter",
+  "version": "1.0.0",
+  "description": "Updates a Spotify playlist description with Pacific Time day-of-year and song count.",
+  "main": "src/update-playlist.js",
+  "type": "module",
+  "scripts": {
+    "update-playlist": "node src/update-playlist.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
