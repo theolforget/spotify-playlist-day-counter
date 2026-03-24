@@ -114,7 +114,12 @@ async function main() {
   const accessToken = await refreshAccessToken();
   const playlist = await getPlaylist(accessToken, SPOTIFY_PLAYLIST_ID);
 
-  const day = getDayOfYearInTimeZone(TIMEZONE);
+  const rawDay = getDayOfYearInTimeZone(TIMEZONE);
+  const year = new Date().toLocaleString("en-US", {
+    timeZone: TIMEZONE,
+    year: "numeric"
+  });
+  const day = Number(year) > 2026 ? 365 : rawDay;
   const songs = playlist?.tracks?.total ?? 0;
   const newDescription = `${day} days | ${songs} songs`;
   const currentDescription = playlist?.description ?? "";
