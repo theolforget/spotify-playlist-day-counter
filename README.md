@@ -4,11 +4,11 @@ Updates a Spotify playlist description every 5 minutes using GitHub Actions.
 
 Format:
 
-Day {day} • {songs} songs
+{day} days | {songs} songs
 
 Example:
 
-Day 84 • 127 songs
+84 days | 127 songs
 
 ## Required GitHub Secrets
 
