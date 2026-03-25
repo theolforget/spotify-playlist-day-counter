@@ -75,7 +75,7 @@ async function refreshAccessToken() {
 
 async function getPlaylist(accessToken, playlistId) {
   const response = await fetch(
-    `https://api.spotify.com/v1/playlists/${playlistId}?fields=id,name,description,tracks(total),owner(id),public`,
+    `https://api.spotify.com/v1/playlists/${playlistId}?fields=id,name,description,items(total),owner(id),public`,
     {
       headers: {
         Authorization: `Bearer ${accessToken}`
@@ -119,12 +119,14 @@ async function main() {
     timeZone: TIMEZONE,
     year: "numeric"
   });
+
   const day = Number(year) > 2026 ? 365 : rawDay;
-  const songs = playlist?.tracks?.total ?? 0;
+  const songs = playlist?.items?.total ?? 0;
   const newDescription = `${day} days | ${songs} songs`;
   const currentDescription = playlist?.description ?? "";
 
   console.log(`Playlist: ${playlist.name}`);
+  console.log("Raw playlist response:", JSON.stringify(playlist, null, 2));
   console.log(`Current description: ${currentDescription}`);
   console.log(`New description: ${newDescription}`);
 
